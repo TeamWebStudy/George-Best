@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CLick me</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<!-- React JS 설치를 위한 Javascript 코드 Url -->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    const root = document.getElementById("root");
+
+    // 리엑트js에서 element를 생성하는 어려운 방법
+    const span = React.createElement("span", 
+    {
+        id: "sexy-span", // 내부에 프로퍼티를 만든다.
+        style: {color: 'red'},
+    },
+    "Hello I'm a span"
+    ); // 안에 오는건 HTML 태그와 이름이 같아야 한다.
+
+    ReactDOM.render(span, root); // 리엑트 element를 가지고 HTML로 만들어 배치한다는 뜻
+    //root 안에 span을 생성하라는 의미
+</script>
+
+</html>

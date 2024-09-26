@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CLick me</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<!-- React JS 설치를 위한 Javascript 코드 Url -->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- babel을 사용하기 위한 js -->
+
+<!-- type으로 babel을 줘야지 사용 가능하다. -->
+<script type="text/babel">
+    const root = document.getElementById("root");
+    let counter = 0;
+
+    const countUp = () => {
+        counter = counter + 1;
+        reRender();
+        //여기서 counter가 늘어날 때 마다 다시 랜더링 한다.
+    }
+    function reRender() {
+        ReactDOM.render(<Container />, root);
+    }
+    //코드를 보면 전체 container를 다시 생성하는 것처럼 보이지만
+    //리액트에서 바뀐 부분만 업데이트 해준다.
+
+    //const를 function으로 바꿔도 상관 없다.
+    //대신 return () 괄호 안에 div 같은 내용이 들어가야됨
+    const Container = () => (
+        <div>
+            <h3>
+                Total Click : {counter}
+            </h3>
+            <button onClick = {countUp}>
+                Click me
+            </button>
+        </div>
+    );
+    // 여러개를 render하고 싶으면 div 같은 걸 하나 만들어서 배열로 내부에 넣어준다.
+    reRender();
+</script>
+
+</html>

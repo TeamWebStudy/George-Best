@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CLick me</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<!-- React JS 설치를 위한 Javascript 코드 Url -->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- babel을 사용하기 위한 js -->
+
+<!-- type으로 babel을 줘야지 사용 가능하다. -->
+<script type="text/babel">
+    const root = document.getElementById("root");
+    //const를 function으로 바꿔도 상관 없다.
+    //대신 return () 괄호 안에 div 같은 내용이 들어가야됨
+    function App() {
+        const [counter, modifier] = React.useState(0);
+        const onClick = () => {
+            modifier(counter + 1)
+            //modifier 함수는 소괄호 안에 무슨 값을 넣든
+            //데이터를 그 값으로 업데이트 시켜준다.
+        }
+        return (
+            <div>
+                <h3>
+                    Total Click : {counter}
+                </h3>
+                <button onClick = {onClick}>
+                    Click me
+                </button>
+            </div>
+        );
+    };
+    // 여러개를 render하고 싶으면 div 같은 걸 하나 만들어서 배열로 내부에 넣어준다.
+    ReactDOM.render(<App />, root);
+
+    // let counter = 0; 기존의 데이터를 담는 방식
+</script>
+
+</html>
+
